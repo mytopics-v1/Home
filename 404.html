@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Page Not Found</title>
+  <style>
+    :root{
+      --ink:#222;
+      --muted:#555;
+      --bg:#ffffff;
+      --accent:#0d9488;
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    h1{font-size: clamp(48px, 8vw, 80px); color: var(--accent)}
+    p{margin-top: 12px; font-size: 1.1rem; color: var(--muted)}
+    a{
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background .2s ease;
+    }
+    a:hover{background:#0f766e}
+    @media (prefers-color-scheme: dark){
+      :root{--ink:#eee; --muted:#cbd5e1; --bg:#0b0b0b}
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>404</h1>
+    <p>Oops! The page you are looking for doesn’t exist.</p>
+    <a href="index.html">Go Back Home</a>
+  </div>
+</body>
+</html>
