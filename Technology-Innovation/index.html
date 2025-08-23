@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Technology & Innovation - MyTopics</title>
+  <meta name="description" content="Technology & Innovation: Personalities and Programming Languages." />
+  
+  <!-- CSS -->
+  <style>
+    :root{
+      --ink:#222;
+      --muted:#555;
+      --bg:#ffffff;
+      --accent:#0d9488;
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.9;
+    }
+    .container{max-width: 1000px; margin: 0 auto; padding: 0 16px}
 
+    h2{font-size:1.6rem; margin:30px 0 16px; text-align:center}
+
+    /* 🔍 Search bar */
+    .search-box{display:flex; justify-content:center; margin-bottom:20px}
+    .search-box input{
+      width:100%;
+      max-width:400px;
+      padding:10px 14px;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      font-size:1rem;
+    }
+    .search-box input:focus{outline:none; border-color:var(--accent)}
+
+    .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; margin-bottom:30px}
+    .card{
+      border:1px solid #e5e7eb; border-radius:12px; transition:0.2s ease; background:#fff; overflow:hidden;
+      display:flex; flex-direction:column;
+    }
+
+    @media (hover: hover) {
+      .card:hover{box-shadow:0 3px 8px rgba(0,0,0,0.08)}
+    }
+
+    .card img{width:100%; height:180px; object-fit:cover}
+    .card-content{padding:16px}
+    .card h3{margin-bottom:8px; font-size:1.2rem; color:var(--accent)}
+    .card p{font-size:.95rem; color:var(--muted)}
+    .card a{display:inline-block; margin-top:10px; color:var(--accent); text-decoration:none; font-weight:500}
+    .card a:hover{text-decoration:underline}
+
+    @media (prefers-color-scheme: dark){
+      :root{--ink:#eee; --muted:#cbd5e1; --bg:#0b0b0b}
+      .card{background:#111827; border-color:#1f2937}
+      .search-box input{background:#1f2937; color:#eee; border-color:#374151}
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h2>Technology & Innovation</h2>
+
+    <!-- 🔍 Search box -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search..." />
+    </div>
+
+    <div class="cards" id="topicsList">
+      <!-- Personalities card -->
+      <div class="card">
+        <img src="jpg/A-group-of-technology-influencers.jpg" alt="Personalities">
+        <div class="card-content">
+          <h3>Personalities</h3>
+          <p>Learn about the most influential figures in technology and history.</p>
+          <a href="personalities.html">Explore</a>
+        </div>
+      </div>
+
+      <!-- Programming Languages card -->
+      <div class="card">
+        <img src="jpg/programming.jpg" alt="Programming Languages">
+        <div class="card-content">
+          <h3>Programming Languages</h3>
+          <p>Discover the most popular programming languages and their uses.</p>
+          <a href="languages.html">Explore</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- JS for search -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const topics = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      topics.forEach(topic => {
+        const text = topic.innerText.toLowerCase();
+        topic.style.display = text.includes(query) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
